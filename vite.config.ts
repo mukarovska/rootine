@@ -1,13 +1,13 @@
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
-import { VitePWA } from 'vite-plugin-pwa';
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'prompt',
+      registerType: "prompt",
       injectRegister: false,
 
       pwaAssets: {
@@ -16,23 +16,23 @@ export default defineConfig({
       },
 
       manifest: {
-        name: 'rootine',
-        short_name: 'rootine',
-        description: 'rootine',
-        theme_color: '#ffffff',
+        name: "rootine",
+        short_name: "rootine",
+        description: "rootine",
+        theme_color: "#ffffff",
       },
 
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+        globPatterns: ["**/*.{js,css,html,svg,png,ico}"],
         cleanupOutdatedCaches: true,
         clientsClaim: true,
       },
 
       devOptions: {
         enabled: false,
-        navigateFallback: 'index.html',
+        navigateFallback: "index.html",
         suppressWarnings: true,
-        type: 'module',
+        type: "module",
       },
     }),
   ],
