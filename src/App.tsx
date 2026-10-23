@@ -44,7 +44,7 @@ function App() {
 
   return (
     <main>
-      <h1>Rootine – moje rostliny – test</h1>
+      <h1>Rootine moje rostliny test</h1>
 
       {plants.map((plant) => (
         <p key={plant.id}>{plant.name}</p>
