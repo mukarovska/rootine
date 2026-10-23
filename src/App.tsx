@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
-import './App.css';
-import { supabase } from './supabaseClient';
+import "./App.css";
+
+import { useEffect, useState } from "react";
+
+import { supabase } from "./supabaseClient";
 
 interface Plant {
   id: string;
@@ -15,34 +17,38 @@ function App() {
 
   useEffect(() => {
     async function initialize() {
-      await supabase.auth.signInWithPassword({
+      const { error: signInError } = await supabase.auth.signInWithPassword({
         email: import.meta.env.VITE_DEV_USER_EMAIL,
         password: import.meta.env.VITE_DEV_USER_PASSWORD,
       });
 
-      const { data, error } = await supabase.from('Plants').select('*');
+      if (signInError) {
+        console.error("Chyba přihlášení:", signInError.message);
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("Plants")
+        .select("id, created_at, user_id, name, location");
 
       if (error) {
-        console.error('Chyba načítání:', error.message);
+        console.error("Chyba načítání rostlin:", error.message);
         return;
       }
 
       setPlants(data ?? []);
     }
 
-    initialize();
+    void initialize();
   }, []);
 
   return (
     <main>
-      <h1>Rootine – moje rostliny - test</h1>
-      {plants && (
-        <>
-          {plants.map((plant) => {
-            return <p key={plant.id}>{plant.name}</p>;
-          })}
-        </>
-      )}
+      <h1>Rootine – moje rostliny – test</h1>
+
+      {plants.map((plant) => (
+        <p key={plant.id}>{plant.name}</p>
+      ))}
     </main>
   );
 }
