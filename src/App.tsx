@@ -18,7 +18,7 @@ function App() {
 
   const plant: TestPlant = {
     name: "Monstera",
-    location: 123,
+    location: "obývák",
   };
 
   console.log(plant);
