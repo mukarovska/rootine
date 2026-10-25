@@ -2,6 +2,7 @@ import "./App.css";
 
 import { useEffect, useState } from "react";
 
+import type { TestPlant } from "./models/testPlant";
 import { supabase } from "./supabaseClient";
 
 interface Plant {
@@ -14,6 +15,13 @@ interface Plant {
 
 function App() {
   const [plants, setPlants] = useState<Plant[]>([]);
+
+  const plant: TestPlant = {
+    name: "Monstera",
+    location: 123,
+  };
+
+  console.log(plant);
 
   useEffect(() => {
     async function initialize() {
