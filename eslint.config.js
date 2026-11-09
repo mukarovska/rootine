@@ -10,7 +10,7 @@ import prettierConfig from "eslint-config-prettier";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 
 export default defineConfig([
-  globalIgnores(["dist", "pwa-assets.config.ts"]),
+  globalIgnores(["dist", "pwa-assets.config.ts", "routeTree.gen.ts"]),
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
