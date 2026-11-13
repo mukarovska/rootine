@@ -1,7 +1,7 @@
-import type { ReactElement } from "react";
+import type { ReactNode } from "react";
 
 interface MenuLayoutProps {
-  children: ReactElement;
+  children: ReactNode;
 }
 
 //TODO: Dodělat menu
