@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  /* Colors */
   --color-primary: #5c7256;
+
+  /* Spacings */
+  --spacing-page: 15px;
 }
